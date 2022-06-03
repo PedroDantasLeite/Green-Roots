@@ -108,14 +108,12 @@ public class Repository {
 					System.out.println("Login efetuado com sucesso!");
 					return Usuarios[c];
 				}
-				
 				System.out.println("Senha incorreta!");
 				return null;
 				
 			}
 			
 		}
-		
 		System.out.println("Usuario não encontrado!");
 		return null;
 		
@@ -127,7 +125,6 @@ public class Repository {
 		int index = procuraConta(conta);
 		
 		if (index != -1) {
-			
 			Usuarios[index] = null;
 			return true;
 			
