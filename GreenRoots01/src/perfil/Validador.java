@@ -1,23 +1,54 @@
 package perfil;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+//import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.regex.Pattern;
 
 public class Validador {
 	
-	public static boolean isValidEmail (String email) {
+	public boolean isValidEmail (String email) {
 		String regexPattern = "^(.+)@(\\S+)$";
 		Boolean temp = Pattern.compile(regexPattern).matcher(email).matches();
 		return temp;
 	}
 	
-	public static boolean isValidDate (Date birth) {
+	public boolean isValidDate (Date birth) {
+		LocalDate data = LocalDate.now();
+		int dia = birth.getDia();
+		int mes = birth.getMes();
+		int ano = birth.getAno();
+		
+		if (ano > data.getYear()) {
+			return false;
+		}
+		else if (ano == data.getYear()) {
+			
+			if (mes > data.getMonthValue()) {
+				return false;
+			}
+			else if (mes == data.getMonthValue()) {
+				
+				if (dia > data.getDayOfMonth()) {
+					return false;
+				}
+			}
+			
+		}
+		
+		return true;
+	
+	}
+	
+	// Deve ser alterado
+	public boolean isValidName(String nome) {
+		if (nome == "") {
+			return false;
+		}
 		return true;
 		
 	}
 	
-	private boolean isValidPhone(String telefone) {
+	public boolean isValidPhone(String telefone) {
 	   telefone = telefone.replaceAll("\\D","");
 	   
 	   if (!(telefone.length() >= 10 && telefone.length() <= 11)) return false;

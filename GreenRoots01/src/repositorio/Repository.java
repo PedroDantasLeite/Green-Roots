@@ -42,7 +42,7 @@ public class Repository {
 	// Adiciona a conta passada, antes verifica se 
 	// a mesma ja existe, se não, a adiciona e 
 	// incrementa +1 no tamanho do array
-	public void addConta(Usuario conta) {
+	public int addConta(Usuario conta) {
 		
 		if (procuraConta(conta) != 1) {
 			
@@ -55,12 +55,12 @@ public class Repository {
 			
 			}
 			tamanhoTOT++;
-			
+			return 1;
 		}
 		
 		else {
 			
-			System.out.println("Conta ja adicionada!");
+			return -1;
 			
 		}
 		

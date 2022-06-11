@@ -4,6 +4,12 @@ import java.util.Scanner;
 public class TelaUsuario {
 	private static Scanner INPUT = new Scanner(System.in);
 	
+	public void entrar() {
+		System.out.println("----  GREEN ROOTS  ----");
+		System.out.println();
+		
+	}
+	
 	public void Tela() {
 		
 		int br = 0;

@@ -1,7 +1,5 @@
 package perfil;
 
-import java.util.Date;
-
 public class Usuario {
 
 	private String nome;
