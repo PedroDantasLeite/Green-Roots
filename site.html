@@ -31,12 +31,12 @@
         </div>
         <p><a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a></p>
         <script>
-        var southWest = L.latLng(-8.06640,-34.88347),
-            northEast = L.latLng(-8.05258,-34.86837), //mudar o bound
+        var southWest = L.latLng(-8.16640,-34.99347),
+            northEast = L.latLng(-8.00000,-34.85937), //mudar o bound
             bounds = L.latLngBounds(southWest, northEast);
         var map = L.map('map',{maxBounds: bounds ,  // Then add it here..
-        maxZoom: 25,
-        minZoom: 14}).setView([51.505, -0.09], 13);
+        maxZoom: 18,
+        minZoom: 6}).setView([51.505, -0.09], 13);
         L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=GHQ6icGSr9DXapNj9GjQ',{
             tileSize: 512,
             zoomOffset: -1,
