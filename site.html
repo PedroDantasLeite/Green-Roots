@@ -2,32 +2,39 @@
     <!DOCTYPE html>
     <html>
         <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             
-            <title>Quick Start - Leaflet</title>
+            <title>Green Roots - Tela principal</title>
             
             <link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico">
         
             <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="">
             <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
-        
             <style>
                 html, body {
                     height: 100%;
                     margin: 0;
                 }
                 .leaflet-container {
-                    height: 400px;
-                    width: 600px;
+                    height: 600px;
+                    width: 400px;
                     max-width: 100%;
                     max-height: 100%;
+                    
+                }
+                .fish
+                {
+                    position: absolute;
+                    top: 60px;
+                    left: 80px;
                 }
             </style>
     
         </head>
     <body>
+        <div><img src="Capturar.JPG" alt="Heading" style="width:400px;height:80px;"</div>
         <div id="map">
+            <img src="baixo.png" alt="BAIXO" style="width:400px;height:400px;" class="fish">
         </div>
         <p><a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a></p>
         <script>
@@ -36,17 +43,24 @@
             bounds = L.latLngBounds(southWest, northEast);
         var map = L.map('map',{maxBounds: bounds ,  // Then add it here..
         maxZoom: 18,
-        minZoom: 6}).setView([51.505, -0.09], 13);
+        minZoom: 8}).setView([51.505, -0.09], 13).fitWorld();
         L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=GHQ6icGSr9DXapNj9GjQ',{
             tileSize: 512,
             zoomOffset: -1,
             minZoom: 1,
             attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
             crossOrigin: true
-        }).addTo(map);
-        var marker = L.marker([-8.0600284, -34.8727196]).addTo(map); 
-        var marker = L.marker([-8.0612052, -34.8723693]).addTo(map);
-        var marker = L.marker([-8.0478208, -34.9110272]).addTo(map);
+        }).addTo(map).bringToBack();
+
+        var leafletIcon = L.icon({
+            iconUrl: 'icon.png',
+            iconSize:[30, 25]
+        })
+
+        var marker = L.marker([-8.0600284, -34.8727196], {icon:leafletIcon}).addTo(map); 
+        var marker = L.marker([-8.0612052, -34.8720693], {icon:leafletIcon}).addTo(map);
+        var marker = L.marker([-8.0478208, -34.9110272], {icon:leafletIcon}).addTo(map);
         </script>
+        ,
     </body>
     </html>
