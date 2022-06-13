@@ -6,6 +6,17 @@ import java.util.regex.Pattern;
 
 public class Validador {
 	
+	public boolean isValidPass (String pass){
+		if (pass.length() >= 5){
+			for(int i = 0; i < pass.length(); i++){
+				if (pass.charAt(i) >= 65 && pass.charAt(i) <= 90){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	public boolean isValidEmail (String email) {
 		String regexPattern = "^(.+)@(\\S+)$";
 		Boolean temp = Pattern.compile(regexPattern).matcher(email).matches();

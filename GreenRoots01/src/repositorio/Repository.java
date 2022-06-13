@@ -1,5 +1,7 @@
 package repositorio;
 
+import java.util.Objects;
+
 import perfil.Usuario;
 
 public class Repository {
@@ -22,7 +24,7 @@ public class Repository {
 		
 		for (int c=0; c<tamanhoTOT; c++) {
 			
-			if (Usuarios[c] == conta) {
+			if (Objects.equals(Usuarios[c].getEmail(), conta.getEmail())) {
 				valida = 1;
 				index = c;
 			}
@@ -42,11 +44,11 @@ public class Repository {
 	// Adiciona a conta passada, antes verifica se 
 	// a mesma ja existe, se não, a adiciona e 
 	// incrementa +1 no tamanho do array
-	public int addConta(Usuario conta) {
+	public boolean addConta(Usuario conta) {
 		
-		if (procuraConta(conta) != 1) {
+		if (procuraConta(conta) == -1) {
 			
-			for (int c=0; c<tamanhoTOT; c++) {
+			for (int c=0; c<=tamanhoTOT; c++) {
 			
 				if (Usuarios[c] == null) {
 					Usuarios[c] = conta;
@@ -55,14 +57,41 @@ public class Repository {
 			
 			}
 			tamanhoTOT++;
-			return 1;
+			return true;
 		}
 		
 		else {
 			
-			return -1;
+			return false;
 			
 		}
+		
+	}
+	
+	public void printPerfil(Usuario conta) {
+		
+		int index = procuraConta(conta);
+		
+		System.out.println(Usuarios[index].getNome());
+		System.out.println(Usuarios[index].getNascimento().getDia() + " " + Usuarios[index].getNascimento().getMes() + " " + Usuarios[index].getNascimento().getAno());
+		System.out.println(Usuarios[index].getEmail());
+		System.out.println(Usuarios[index].getTelefone());
+		
+	}
+	
+	public void alteraNome(Usuario conta, String nome) {
+		
+		int index = procuraConta(conta);
+		
+		Usuarios[index].setNome(nome);
+		
+	}
+	
+	public void alteraSenha(Usuario conta, String senha) {
+		
+		int index = procuraConta(conta);
+		
+		Usuarios[index].setSenha(senha);
 		
 	}
 	
@@ -76,7 +105,7 @@ public class Repository {
 			
 			String UsrPass = Usuarios[index].getSenha();
 			
-			if (UsrPass == pass) {
+			if (Objects.equals(UsrPass, pass)) {
 				return true;
 			}
 			
@@ -102,9 +131,8 @@ public class Repository {
 	public Usuario login(String email, String senha) {
 		
 		for (int c=0; c<tamanhoTOT; c++) {
-			if (Usuarios[c].getEmail() == email) {
-				
-				if (Usuarios[c].getSenha() == senha) {
+			if (Objects.equals(Usuarios[c].getEmail(), email)) {
+				if (Objects.equals(Usuarios[c].getSenha(), senha)) {
 					System.out.println("Login efetuado com sucesso!");
 					return Usuarios[c];
 				}
