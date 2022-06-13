@@ -33,16 +33,16 @@
             </style>
         </head>
     <body>
-        <div><img src="Elements/heading.JPG" alt="Heading" style="width:460px;height:80px;"</div>
+        <div><img src="Elements/heading.JPG" alt="Heading" style="width:400px;height:80px;"</div>
         <div id="map">
-            <img src="Elements/tabs.png" alt="BAIXO" style="width:415px;height:80px;margin-top:525px;" class="imageTop">
+            <img src="Elements/tabs.png" alt="Tabs" style="width:415px;height:80px;margin-top:525px;" class="imageTop">
         </div>
         <p><a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a></p>
         <script>
         var southWest = L.latLng(-8.16640,-34.99347),
-            northEast = L.latLng(-8.00000,-34.85937), //mudar o bound
+            northEast = L.latLng(-8.00000,-34.85937),
             bounds = L.latLngBounds(southWest, northEast);
-        var map = L.map('map',{maxBounds: bounds ,  // Then add it here..
+        var map = L.map('map',{maxBounds: bounds ,
         maxZoom: 18,
         minZoom: 8}).setView([51.505, -0.09], 13).fitWorld();
         L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=GHQ6icGSr9DXapNj9GjQ',{
@@ -65,6 +65,15 @@
         var marker = L.marker([-8.0600284, -34.8727196], {icon:leafletIcon}).bindPopup(popupContent,{ maxWidth: "auto" }).addTo(map);
         var marker = L.marker([-8.0612052, -34.8720693], {icon:leafletIcon}).bindPopup(popupContent,{ maxWidth: "auto" }).addTo(map);
         var marker = L.marker([-8.0478208, -34.9110272], {icon:leafletIcon}).bindPopup(popupContent,{ maxWidth: "auto" }).addTo(map);
+        var marker = L.marker([-8.0424168, -34.8818395], {icon:leafletIcon}).bindPopup(popupContent,{ maxWidth: "auto" }).addTo(map);
+        var marker = L.marker([-8.0940017, -34.8952396], {icon:leafletIcon}).bindPopup(popupContent,{ maxWidth: "auto" }).addTo(map);
+        var marker = L.marker([-8.0981036, -34.9028980], {icon:leafletIcon}).bindPopup(popupContent,{ maxWidth: "auto" }).addTo(map);
+        var marker = L.marker([-8.0729575, -34.8922519], {icon:leafletIcon}).bindPopup(popupContent,{ maxWidth: "auto" }).addTo(map);
+        var marker = L.marker([-8.0507342, -34.8872149], {icon:leafletIcon}).bindPopup(popupContent,{ maxWidth: "auto" }).addTo(map);
+        var marker = L.marker([-8.0841500, -34.9061031], {icon:leafletIcon}).bindPopup(popupContent,{ maxWidth: "auto" }).addTo(map);
+        var marker = L.marker([-8.0391060, -34.9034729], {icon:leafletIcon}).bindPopup(popupContent,{ maxWidth: "auto" }).addTo(map);
+        var marker = L.marker([-8.0618111, -34.8931068], {icon:leafletIcon}).bindPopup(popupContent,{ maxWidth: "auto" }).addTo(map);
+
         </script>
         ,
     </body>
