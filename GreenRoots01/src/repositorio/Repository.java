@@ -73,7 +73,7 @@ public class Repository {
 		int index = procuraConta(conta);
 		
 		System.out.println(Usuarios[index].getNome());
-		System.out.println(Usuarios[index].getNascimento().getDia() + " " + Usuarios[index].getNascimento().getMes() + " " + Usuarios[index].getNascimento().getAno());
+		System.out.println(Usuarios[index].getDia() + " " + Usuarios[index].getMes() + " " + Usuarios[index].getAno());
 		System.out.println(Usuarios[index].getEmail());
 		System.out.println(Usuarios[index].getTelefone());
 		

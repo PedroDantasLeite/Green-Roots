@@ -23,11 +23,11 @@ public class Validador {
 		return temp;
 	}
 	
-	public boolean isValidDate (Date birth) {
+	public boolean isValidDate (int day, int month, int year) {
 		LocalDate data = LocalDate.now();
-		int dia = birth.getDia();
-		int mes = birth.getMes();
-		int ano = birth.getAno();
+		int dia = day;
+		int mes = month;
+		int ano = year;
 		
 		if (ano > data.getYear()) {
 			return false;

@@ -1,17 +1,15 @@
 package perfil;
 
-public class Usuario {
+public class Usuario extends Date{
 
 	private String nome;
-	private Date nascimento;
 	private String email;
 	private String telefone;
 	private String senha;
 	
-	public Usuario(String nome, Date nascimento, String email, String telefone, String senha) {
-		super();
+	public Usuario(String nome, int dia, int mes, int ano, String email, String telefone, String senha) {
+		super(dia, mes, ano);
 		this.nome = nome;
-		this.nascimento = nascimento;
 		this.email = email;
 		this.telefone = telefone;
 		this.senha = senha;
@@ -28,12 +26,6 @@ public class Usuario {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-	public Date getNascimento() {
-		return nascimento;
-	}
-	public void setNascimento(Date nascimento) {
-		this.nascimento = nascimento;
 	}
 	public String getEmail() {
 		return email;

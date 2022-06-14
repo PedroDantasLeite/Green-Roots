@@ -1,7 +1,6 @@
 package telas;
 import java.util.Scanner;
 import perfil.Usuario;
-import perfil.Date;
 import repositorio.Mediador;
 
 public class TelaUsuario {
@@ -92,8 +91,6 @@ public class TelaUsuario {
 		System.out.println("Ano: ");
 		int ano = INPUT.nextInt();
 			
-		Date data = new Date(dia, mes, ano);
-			
 		System.out.println("Email: ");
 		String email = INPUT.next();
 		System.out.println("Telefone: ");
@@ -101,7 +98,7 @@ public class TelaUsuario {
 		System.out.println("Senha: ");
 		String senha = INPUT.next();
 			
-		if (med.cadastro(nome, data, email, cell, senha)) {
+		if (med.cadastro(nome, dia, mes, ano, email, cell, senha)) {
 			return true;
 		}
 		

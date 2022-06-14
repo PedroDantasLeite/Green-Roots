@@ -2,7 +2,6 @@ package repositorio;
 
 import perfil.Usuario;
 import perfil.Validador;
-import perfil.Date;
 
 public class Mediador {
 	Repository rep = new Repository();
@@ -23,11 +22,11 @@ public class Mediador {
 		
 	}
 	
-	public boolean cadastro(String nome, Date nas, String email, String cell, String senha) {
+	public boolean cadastro(String nome, int dia, int mes, int ano, String email, String cell, String senha) {
 		
 		boolean mailV = val.isValidEmail(email);
 		boolean cellV = val.isValidPhone(cell);
-		boolean dataV = val.isValidDate(nas);
+		boolean dataV = val.isValidDate(dia, mes, ano);
 		boolean nameV = val.isValidName(nome);
 		boolean passV = val.isValidPass(senha);
 		
@@ -56,7 +55,7 @@ public class Mediador {
 			return false;
 		}
 		
-		Usuario acc = new Usuario(nome, nas, email, cell, senha);
+		Usuario acc = new Usuario(nome, dia, mes, ano, email, cell, senha);
 		
 		if (rep.addConta(acc)) {
 			System.out.println("Conta adicionada com sucesso!");
